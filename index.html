@@ -21,7 +21,12 @@ var _hmt = _hmt || [];
 
 </head>
 <body>
-	<embed height="60" type="audio/midi" width="144" src="MyLittleAirport.mp3" volume="60" hidden="true" loop="true" autostart="false" /> 
+	<div class="player"> 
+		<audio controls> 
+			<!-- Audio files --> 
+			<source src="MyLittleAirport.mp3" type="audio/mp3" width="144" volume="60" hidden="true" loop="true" autostart="false"> 
+		 </audio>
+	</div>
 	
 	<div class="container">
             <header class="jumbotron subhead" id="overview">
