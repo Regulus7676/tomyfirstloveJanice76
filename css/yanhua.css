@@ -27,16 +27,16 @@ span {
 
 h2 {
     z-index: 1000;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    position: relative;
+    bottom: 0%;
+    right:0%;
     transform: translateX(-50%) translateY(-100%);
     font-size: 48px;
     overflow: hidden;
 }
 
 span {
-    position: relative;
+    position: absolute;
     display: inline-block;
     animation: drop 0.55s ease 0s;
 }
