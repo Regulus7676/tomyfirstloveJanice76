@@ -28,8 +28,8 @@ span {
 h2 {
     z-index: 1000;
     position: relative;
-    bottom: 10%;
-    right: 10%;
+    bottom: 0%;
+    right: 0%;
     transform: translateX(-50%) translateY(-100%);
     font-size: 48px;
     overflow: hidden;
