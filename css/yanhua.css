@@ -28,7 +28,7 @@ span {
 h2 {
     z-index: 1000;
     position: fixed;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translateX(-50%) translateY(-100%);
     font-size: 48px;
@@ -38,7 +38,7 @@ h2 {
 span {
     position: relative;
     display: inline-block;
-    animation: drop 0.55s ease 0s;
+    animation: drop 0.35s ease 0s;
 }
 
 
