@@ -39,7 +39,6 @@ span {
     position: absolute;
     display: inline-block;
     animation: drop 0.75s ease 0s;
-    color: pink;
 }
 
 
