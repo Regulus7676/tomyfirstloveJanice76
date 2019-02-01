@@ -28,15 +28,15 @@ span {
 h2 {
     z-index: 1000;
     position: fixed;
+    top: 0%;
+    left: 0%;
     transform: translateX(-50%) translateY(-100%);
-    font-size: 48px;
+    font-size: 58px;
     overflow: hidden;
 }
 
 span {
-    position: absolute;
-    bottom: 0%;
-    right: 0%;
+    position: relative;
     display: inline-block;
     animation: drop 0.75s ease 0s;
 }
