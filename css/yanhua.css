@@ -17,6 +17,7 @@ h1 {
     transform: translateX(-50%) translateY(-100%);
     font-size: 58px;
     overflow: hidden;
+    style="color:red ;
 }
 
 span {
