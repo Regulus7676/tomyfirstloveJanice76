@@ -28,8 +28,8 @@ span {
 h2 {
     z-index: 1000;
     position: relative;
-    bottom: 0%;
-    right: 0%;
+    bottom: 10%;
+    right: 10%;
     transform: translateX(-50%) translateY(-100%);
     font-size: 48px;
     overflow: hidden;
@@ -38,7 +38,7 @@ h2 {
 span {
     position: absolute;
     display: inline-block;
-    animation: drop 0.55s ease 0s;
+    animation: drop 0.75s ease 0s;
     color: pink;
 }
 
