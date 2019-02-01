@@ -28,11 +28,12 @@ span {
 h2 {
     z-index: 1000;
     position: fixed;
-    top: 0%;
-    left: 0%;
+    top: 70%;
+    left: 70%;
     transform: translateX(-50%) translateY(-100%);
     font-size: 58px;
     overflow: hidden;
+    color:pink;
 }
 
 span {
