@@ -27,39 +27,6 @@
     <p id="msg"></p>
 	
 
-<style>
-        body {
-            -webkit-font-smoothing: antialiased;
-            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
-            background-image: url('bg.jpg');
-            font-size: 85%;
-            margin: 0;
-        }
-        
-        h2 {
-            font-size: 220%;
-            font-weight: 400;
-        }
-        
-        .content {
-            position: absolute;
-            width: 100%;
-            top: 40%;
-            transform: translate(0, -50%);
-            text-align: center;
-        }
-        
-        .timer {
-            font-size: 180%;
-            line-height: 1.5;
-            margin: 1em 0;
-        }
-        
-        .timer b {
-            color: rgb(253, 99, 125);
-        }
-    </style>
-	
 
 
      <div class="timer">
@@ -69,8 +36,7 @@
 		    
 		
     <script>
-	  var dataTable = null;
-//var db = openDatabase('MyData','','My Database',102400);
+var dataTable = null;
 var db = openDatabase("MsgData", "1.0", "留言表", 1024 * 1024, function () { });
 
 function init(){
@@ -142,13 +108,11 @@ function saveData(){
     var name = document.getElementById('name').value;
     var memo = document.getElementById('memo').value;
     var time = new Date().getTime();
-//    alert(name + memo + time);
     addData(name,memo,time);
     showAllData();
 }
   
 	           
-  
     </script>
 	
 	<div class="container">
