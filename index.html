@@ -1,118 +1,112 @@
 <!DOCTYPE HTML>
 <html>
-	
-<head lang="en">
+<head>
+	<title>sensensen</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="5＝2＋3，你的生日" />
+	<meta name="description" content="生日快乐" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	<link href="css/ohmygod.css" rel="stylesheet" type="text/css"/>	
-    <title>使用SQLLite数据库实现web留言本</title>
-    <script type="text/javascript" src="script4.js"></script>
-</head>
+
+	<style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            background-image: url('bg.jpg');
+            font-size: 85%;
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 220%;
+            font-weight: 400;
+        }
+        
+        .content {
+            position: absolute;
+            width: 100%;
+            top: 40%;
+            transform: translate(0, -50%);
+            text-align: center;
+        }
+        
+        .timer {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+        
+        .timer b {
+            color: rgb(253, 99, 125);
+        }
+    </style>
 	
-<body onload="init()">
+<script>
+ window.onload = function(){
+ var oMsg = document.getElementById("msg");
+ var oBtn = document.getElementById("btn");
+ var oMsg_c = document.getElementById("msg_c");
+ var oUl = document.createElement("ul");
+ oMsg_c.appendChild(oUl);
+ oBtn.onclick = function(){
+  var sVal = oMsg.value;
+  var oli = document.createElement("li");
+  oli.innerHTML = sVal + " <span>删除</span>";
+  var oli1 = oUl.getElementsByTagName("li");
+  if(oli1.length>0){
+   oUl.insertBefore(oli,oli1[0]);
+  }else{
+   oUl.appendChild(oli);
+  }
+  oMsg.value='';
+   var oSpan = document.getElementsByTagName("span");
+   for(var i=0; i<oSpan.length; i++){
+    oSpan[i].onclick = function(){
+     oUl.removeChild(this.parentNode);
+    }
+   }
+ }
+}
+</script>
+
+</head>
+<body>
 	 <div class="container">
 	 <header class="jumbotron subhead" id="overview">
-    <h1>使用SQLLite数据库实现web留言本</h1>
-    <table>
-        <tr><td>姓名：</td><td><input type="text" id="name"></td></tr>
-        <tr><td>留言：</td><td><input type="text" id="memo"></td></tr>
-        <tr>
-            <td></td>
-            <td><input type="button" value="保存" onclick="saveData();"></td>
-        </tr>
-    </table>
-    <hr>
-    <table id="dataTable" border="1"></table>
-    <p id="msg"></p>
-	
-
-
-
-     <div class="timer">
+	<h1>倾听你的心事</h1>
+<textarea id="msg" name="msg" style="width: 90%; height: 200px; margin-top:5px;" >"是甜言蜜语还是抱怨难过"</textarea> 
+<input id="btn" type="button" value="留言"> 
+<div id="msg_c"></div>
+        <div class="timer">
             <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
         </div>
  </div>
 		    
 		
     <script>
-var dataTable = null;
-var db = openDatabase("MsgData", "1.0", "留言表", 1024 * 1024, function () { });
-
-function init(){
-    dataTable = document.getElementById("dataTable");
-    showAllData();
-}
-
-function removeAllData(){
-    for(var i = dataTable.childNodes.length-1;i >= 0;i--){
-        dataTable.removeChild(dataTable.childNodes[i]);
-    }
-    var tr = document.createElement('tr');
-    var th1 = document.createElement('th');
-    var th2 = document.createElement('th');
-    var th3 = document.createElement('th');
-    th1.innerHTML = '姓名';
-    th2.innerHTML = '留言';
-    th3.innerHTML = '时间';
-    tr.appendChild(th1);
-    tr.appendChild(th2);
-    tr.appendChild(th3);
-    dataTable.appendChild(tr);
-}
-
-function showData(row){
-    var tr = document.createElement('tr');
-    var td1 = document.createElement('td');
-    td1.innerHTML = row.name;
-    var td2 = document.createElement('td');
-    td2.innerHTML = row.message;
-    var td3 = document.createElement('td');
-    var t = new Date();
-    t.setTime(row.time);
-    td3.innerHTML = t.toLocaleDateString()+" "+t.toLocaleTimeString();
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    dataTable.appendChild(tr);
-}
-
-function showAllData(){
-    db.transaction(function(tx){
-        tx.executeSql('create table if not exists MsgData(name text,message text,time integer',[]);
-        tx.executeSql('select * from MsgData',[],function(tx,rs){
-            removeAllData();
-            for(var i = 0;i < rs.rows.length;i++){
-                showData(rs.rows.item[i]);
+        function timer() {
+            var start = new Date(2018, 4, 1);
+            var t = new Date() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) {
+                h = "0" + h;
             }
-        });
-    });
-}
-
-function addData(name,message,time){
-    db.transaction(function(tx){
-        tx.executeSql(
-        'insert into MsgData(name,message,time) values(?,?,?)',
-        [name,message,time],
-        function(tx,rs){
-            alert("成功保存数据！");
-        },
-        function(tx,error){
-            alert(error.source + "::" + error.message);
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) {
+                m = "0" + m;
+            }
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) {
+                s = "0" + s;
+            }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
         }
-        );
-    });
-}
-
-function saveData(){
-    var name = document.getElementById('name').value;
-    var memo = document.getElementById('memo').value;
-    var time = new Date().getTime();
-    addData(name,memo,time);
-    showAllData();
-}
-  
-	           
+        timer();
+        setInterval(timer, 1000);
     </script>
 	
 	<div class="container">
@@ -176,9 +170,8 @@ function saveData(){
 	  </div>
 	  </div>
   </div>
-	
-</body>
 </html>
 
 <!DOCTYPE html>
 <html lang="cn">
+
