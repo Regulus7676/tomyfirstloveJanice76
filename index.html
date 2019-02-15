@@ -52,7 +52,7 @@
  oBtn.onclick = function(){
   var sVal = oMsg.value;
   var oli = document.createElement("li");
-  oli.innerHTML = sVal + " <span>删除</span>";
+  oli.innerHTML = sVal + " <span>×</span>";
   var oli1 = oUl.getElementsByTagName("li");
   if(oli1.length>0){
    oUl.insertBefore(oli,oli1[0]);
