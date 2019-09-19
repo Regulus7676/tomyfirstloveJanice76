@@ -77,6 +77,27 @@
 	<h2>我也想听你的心事</h2>
 <textarea id="msg" name="msg" style="width: 90%; height: 200px; margin-top:5px;" >"赵晨森请输入"</textarea> 
 <input id="btn" type="button" value="发射"> 
+
+public static String try_catch_finally() {
+		int i = 2;
+		try{
+			if(1==i){
+				System.out.println("can");
+			}
+			else{
+				System.out.println("can't");
+				return ;
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			System.out.println("i love you");
+		}
+
+	}
+		 
 <div id="msg_c"></div>
         <div class="timer">
             <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
