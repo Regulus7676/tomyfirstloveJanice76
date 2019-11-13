@@ -24,7 +24,7 @@ var S = {
     if (i !== -1) {
       S.UI.simulate(decodeURI(action).substring(i + 3));
     } else {
-      S.UI.simulate('|#countdown 3||Summer|For|Thee|Grant|I|May|Be||#rectangle|');
+      S.UI.simulate('|#countdown 3||Summer|For|Thee|Grant|I|May|Be|don|worry||#rectangle|');
     }
 
     S.Drawing.loop(function () {
